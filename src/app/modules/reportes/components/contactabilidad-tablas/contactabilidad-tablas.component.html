@@ -1,0 +1,425 @@
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-md-2 color-title-box text-center font-weight-bold" *ngFor="let titulo of titulos">
+            <span>{{titulo}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 color-data-box maxH">
+            
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="!funcionFiltroEstado('categorias')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="funcionFiltroEstado('categorias')">
+            <div class="row pl-1 labelFilter" *ngFor="let categoria of filtroCategoria">
+                <label class="ml-1 " aria-label="categoria">
+                    <input type="radio" name="categoria" (click)="onChange('categoria', categoria)"/>
+                    {{categoria}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="!funcionFiltroEstado('procedencias')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="funcionFiltroEstado('procedencias')">
+            <div class="row pl-1 labelFilter" *ngFor="let procedencia of filtroProcedencia">
+                <label class="m-0 filtro">
+                    <input type="radio" name="procedencia" (click)="onChange('procedencia', procedencia)"/>
+                    {{procedencia}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="!funcionFiltroEstado('plataformas')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="funcionFiltroEstado('plataformas')">
+            <div class="row pl-1 labelFilter" *ngFor="let plataforma of filtroPlataforma">
+                <label class="m-0 filtro">
+                    <input type="radio" name="plataforma" (click)="onChange('plataforma', plataforma)"/>
+                    {{plataforma}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH container-scroll" *ngIf="!funcionFiltroEstado('canales')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH container-scroll" *ngIf="funcionFiltroEstado('canales')">
+            <div class="row pl-1 labelFilter" *ngFor="let canal of filtroCanal">
+                <label class="m-0 filtro">
+                    <input type="radio" name="canal" (click)="onChange('canal', canal)"/>
+                    {{canal}}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH" *ngIf="!funcionFiltroEstado('medios')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH container-scroll" *ngIf="funcionFiltroEstado('medios')">
+            <div class="row pl-1 labelFilter" *ngFor="let medio of filtroMedio">
+                <label class="m-0 filtro">
+                    <input type="radio" name="medio" (click)="onChange('medio', medio)"/>
+                    {{medio}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 font-weight-bold">
+        <div class="col-md-3 color-title-box text-center">
+            <span>CAMPAÑA</span>
+        </div>
+        <div class="col-md-2 color-title-box text-center">
+            <span>MODELO</span>
+        </div>
+        <div class="col-md-2 color-title-box text-center">
+            <span>CIUDAD</span>
+        </div>
+        <div class="col-md-2 color-title-box text-center">
+            <span>CONCESIONARIOS</span>
+        </div>
+        <div class="col-md-3 color-title-box text-center">
+            <span>USUARIO</span>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-md-3 color-data-box maxH2 container-scroll" *ngIf="!funcionFiltroEstado('campanas')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 color-data-box maxH2 container-scroll" *ngIf="funcionFiltroEstado('campanas')">
+            <div class="row pl-1 labelFilter" *ngFor="let campana of filtroCampana">
+                <label class="m-0 filtro">
+                    <input type="radio" name="campana" (click)="onChange('campana' ,campana)"/>
+                    {{campana}}
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-2 color-data-box maxH2 container-scroll" *ngIf="!funcionFiltroEstado('modelos')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH2 container-scroll" *ngIf="funcionFiltroEstado('modelos')">
+            <div class="row pl-1 labelFilter" *ngFor="let modelo of filtroModelo">
+                <label class="m-0 filtro">
+                    <input type="radio" name="modelo" (click)="onChange('modelo', modelo)"/>
+                    {{modelo}}
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-2 color-data-box maxH2 container-scroll" *ngIf="!funcionFiltroEstado('ciudades')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box maxH2 container-scroll" *ngIf="funcionFiltroEstado('ciudades')">
+            <div class="row pl-1 labelFilter" *ngFor="let ciudad of filtroCiudad">
+                <label class="m-0 filtro">
+                    <input type="radio" name="ciudad" (click)="onChange('ciudad', ciudad)"/>
+                    {{ciudad}}
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-2 color-data-box maxH2 container-scroll" *ngIf="!funcionFiltroEstado('concesionarios')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 color-data-box  maxH2 container-scroll" *ngIf="funcionFiltroEstado('concesionarios')">
+            <div class="row pl-1 labelFilter" *ngFor="let concesionario of filtroConcesionario">
+                <label class="m-0 filtro">
+                    <input type="radio" name="concesionario" (click)="onChange('concesionario', concesionario)"/>
+                    {{concesionario}}
+                </label>
+            </div>
+        </div>
+        
+        <div class="col-md-3 color-data-box maxH2 container-scroll" *ngIf="!funcionFiltroEstado('usuarios')">
+            <div class="row pl-1 labelFilter">
+                <div class="col-md-12 text-center">
+                    <i class="fas fa-spinner fa-spin text-blue fa-3x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 color-data-box maxH2 container-scroll" *ngIf="funcionFiltroEstado('usuarios')">
+            <div class="row pl-1 labelFilter" *ngFor="let usuario of filtroUsuario">
+                <label class="m-0 filtro">
+                    <input type="radio" name="usuario" (click)="onChange('usuario', usuario)"/>
+                    {{usuario | uppercase}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row mt-2 font-weight-bold">
+        <div class="col-md-2 color-title-box text-center">
+            <span>TOTAL DE LEADS</span>
+        </div>
+        <div class="col-md-3 color-title-box text-center">
+            <span>LEADS SIN ASIGNAR</span>
+        </div>
+        <div class="col-md-3 color-title-box text-center">
+            <span>LEADS ASIGNADOS</span>
+        </div>
+        <div class="col-md-4 color-title-box text-center">
+            <span>GESTIÓN CONTACTABILIDAD</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <div class="row color-data-box text-center">
+                <div class="col-md-12 border-left border-bottom border-primary titleTab">
+                    <h3 class="font-weight-bold text-dark color-data-box">{{totalSinAsignar+totalAsignados}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row border-bottom border-secondary color-data-box">
+                <div class="col-md-7 border-left border-primary titleTab text-center">
+                    <span>CONCESIONARIOS</span>
+                </div>
+                <div class="col-md-5 border-right border-primary titleTab text-center">
+                    <span>USUARIO CONCESIONARIO</span>
+                </div>
+            </div>
+            <div class="row border-left border-primary color-data-box">
+                <div class="col-md-12 maxHTables">
+                    <div class="row" [ngClass]="{'border-bottom border-secondary': empresa.toggle == 0}" *ngFor="let empresa of leadSinAsignar">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-1 text-dark font-weight-bold manito" *ngIf="empresa.toggle==0" (click)="expandOrCollapseSinAsignar(empresa)">
+                                    +
+                                </div>
+                                <div class="col-md-1 text-dark font-weight-bold manito desplegado" *ngIf="empresa.toggle!=0" (click)="expandOrCollapseSinAsignar(empresa)">
+                                    -
+                                </div>
+                                <div class="col-md-6 border-right border-secondary" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.con_nom_empresa}}
+                                </div>
+                                <div class="col-md-5" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.total_leads_empresa}}
+                                </div>
+                            </div>
+                            <ng-container *ngIf="empresa.toggle == 1">
+                                <div class="row" *ngFor="let almacen of empresa.listaAlmacenes">
+                                    <div class="col-md-1 border-bottom border-secondary"> </div>
+                                    <div class="col-md-6 pl-1 border-bottom border-right border-secondary">
+                                        <div class="row pl-3">
+                                            <div class="col-md-12">
+                                                <small>{{almacen.con_nom_almacen}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 border-bottom border-secondary">
+                                        <small>{{almacen.total_leads_almacen}}</small>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>  
+                </div>
+            </div> 
+            <div class="row" *ngIf="leadSinAsignar.length == 0">
+                <div class="col-md-12 color-data-box text-center">
+                    No existen elementos
+                </div>
+            </div>
+            <div class="row font-weight-bold" *ngIf="leadSinAsignar.length > 0">
+                <div class="col-md-6 color-data-box border-left border-bottom border-primary  titleTabBottom text-left">
+                    <span>Total</span>
+                </div>  
+                <div class="col-md-6 pr-3 color-data-box border-bottom border-primary titleTabBottom text-right">
+                    <span>{{totalSinAsignar}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 color-data-box">
+            <div class="row border-bottom border-secondary">
+                <div class="col-md-7 titleTab text-center">
+                    <span class="titleTab">CONCESIONARIOS</span>
+                </div>
+                <div class="col-md-5 titleTab border-right border-primary text-center">
+                    <span class="titleTab">CANTIDAD</span>
+                </div>
+            </div>
+            <div class="row border-left border-right border-primary">
+                <div class="col-md-12 maxHTables">
+                    <div class="row" [ngClass]="{'border-bottom border-secondary':empresa.toggle == 0}" *ngFor="let empresa of leadAsignados">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-1 text-dark font-weight-bold manito" *ngIf="empresa.toggle==0" (click)="expandOrCollapseAsignados(empresa)">
+                                    +
+                                </div>
+                                <div class="col-md-1 text-dark font-weight-bold manito desplegado" *ngIf="empresa.toggle!=0" (click)="expandOrCollapseAsignados(empresa)">
+                                    -
+                                </div>
+                                <div class="col-md-6 border-right border-secondary" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.con_nom_empresa}}
+                                </div>
+                                <div class="col-md-5" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.total_leads_empresa}}
+                                </div>
+                            </div>
+                            <ng-container *ngIf="empresa.toggle == 1">
+                                <div class="row"  *ngFor="let almacen of empresa.listaAlmacenes">
+                                    <div class="col-md-1 border-bottom border-secondary"> </div>
+                                    <div class="col-md-6 border-bottom border-right border-secondary">
+                                        <div class="row pl-3">
+                                            <div class="col-md-12">
+                                                <small>{{almacen.con_nom_almacen}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 border-bottom border-secondary">
+                                        <small>{{almacen.total_leads_almacen}}</small>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="leadAsignados.length == 0">
+                <div class="col-md-12 color-data-box text-center">
+                    No existen elementos
+                </div>
+            </div>
+            <div class="row font-weight-bold" *ngIf="leadAsignados.length > 0">
+                <div class="col-md-6 titleTabBottom border-left border-bottom border-primary text-left">
+                    <span>Total</span>
+                </div>
+                <div class="col-md-6 pr-3 titleTabBottom border-right border-bottom border-primary text-right">
+                    <span>{{totalAsignados}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 color-data-box">
+            <div class="row border-bottom border-secondary">
+                <div class="col-md-6 titleTab text-center">
+                    <span class="titleTab">CONCESIONARIOS</span>
+                </div>
+                <div class="col-md-3 titleTab text-center">
+                    <span class="titleTab">CONTACTADO</span>
+                </div>
+                <div class="col-md-3 titleTab text-center">
+                    <span class="titleTab">NO CONTACTADO</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 maxHTables container-scroll">
+                    <div class="row" [ngClass]="{'border-bottom border-secondary': empresa.toggle == 0}" *ngFor="let empresa of leadGC">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-1 text-dark font-weight-bold manito" *ngIf="empresa.toggle==0" (click)="expandOrCollapseGestion(empresa)">
+                                    +
+                                </div>
+                                <div class="col-md-1 text-dark font-weight-bold manito desplegado" *ngIf="empresa.toggle!=0" (click)="expandOrCollapseGestion(empresa)">
+                                    -
+                                </div>
+                                <div class="col-md-5 border-right border-secondary" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.con_nom_empresa}}
+                                </div>
+                                <div class="col-md-3 border-right border-secondary" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.total_leads_contactados_empresa}}
+                                </div>
+                                <div class="col-md-3" [ngClass]="{'text-dark font-weight-bold desplegado':empresa.toggle!=0}">
+                                    {{empresa.total_leads_no_contactados_empresa}}
+                                </div>
+                            </div>
+                            <ng-container *ngIf="empresa.toggle == 1">
+                                <div class="row" [ngClass]="{'border-bottom border-secondary': almacen.toggle == 0}" *ngFor="let almacen of empresa.listaAlmacenes">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-1"> </div>
+                                            <div class="col-md-1 text-dark font-weight-bold manito" *ngIf="almacen.toggle==0" (click)="expandOrCollapseGestionAsesor(almacen)">
+                                                +
+                                            </div>
+                                            <div class="col-md-1 text-dark font-weight-bold manito desplegado" *ngIf="almacen.toggle!=0" (click)="expandOrCollapseGestionAsesor(almacen)">
+                                                -
+                                            </div>
+                                            <div class="col-md-4 border-right border-secondary" [ngClass]="{'desplegado': almacen.toggle!=0}">
+                                                <small [ngClass]="{'text-dark font-weight-bold desplegado': almacen.toggle!=0}">{{almacen.con_nom_almacen}}</small>
+                                            </div>
+                                            <div class="col-md-3 border-right border-secondary" [ngClass]="{'desplegado': almacen.toggle!=0}">
+                                                <small [ngClass]="{'text-dark font-weight-bold': almacen.toggle!=0}">{{almacen.total_leads_contactados_almacen}}</small>
+                                            </div>
+                                            <div class="col-md-3" [ngClass]="{'desplegado': almacen.toggle!=0}">
+                                                <small [ngClass]="{'text-dark font-weight-bold': almacen.toggle!=0}">{{almacen.total_leads_no_contactados_almacen}}</small>
+                                            </div>
+                                        </div>
+                                        <ng-container *ngIf="almacen.toggle == 1">
+                                            <div class="row" *ngFor="let asesor of almacen.listaAsesores">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-2"> </div>
+                                                        <div class="col-md-4 border-right border-secondary">
+                                                            <small>{{asesor.con_nom_asesor}}</small>
+                                                        </div>
+                                                        <div class="col-md-3 border-right border-secondary">
+                                                            <small>{{asesor.total_leads_contactados_asesor}}</small>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <small>{{asesor.total_leads_no_contactados_asesor}}</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>      
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="leadGC.length == 0">
+                <div class="col-md-12 color-data-box text-center">
+                    No existen elementos
+                </div>
+            </div> 
+            <div class="row font-weight-bold" *ngIf="leadGC.length > 0">
+                <div class="col-md-6 border-bottom border-primary titleTabBottom text-left">
+                    <span>Total</span>
+                </div>
+                <div class="col-md-3 pr-3 border-bottom border-primary titleTabBottom text-right">
+                    <span>{{totalGCContactados}}</span>
+                </div>
+                <div class="col-md-3 pr-3 border-right border-bottom border-primary titleTabBottom text-right">
+                    <span>{{totalGCNoContactados}}</span>
+                </div>
+            </div>
+    </div>
+</div>
