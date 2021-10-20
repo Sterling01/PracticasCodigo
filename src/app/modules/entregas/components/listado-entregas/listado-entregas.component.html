@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="form-row justify-content-between align-items-end">
+        <div class="col-auto">
+            <span class="h5">Listado de Entregas</span>
+        </div>
+    </div>
+    <br>
+    <div class="row mb-1 align-items-end justify-content-between">
+        <div class="col-auto">
+
+        </div>
+        <div class="col-auto">
+            <div class="row">
+                <div class="col-auto">
+                    <button class="btn btn-sm btn-light" (click)="limpiar_filtros()"><i class="fas fa-times"></i>
+                        Limpiar filtros</button>
+                </div>
+                <div class="col-auto">
+                               <!--(Nombre del output del modules-shared)-->
+                    <app-filtro-fechas-entregas (filtroFecha)="recibirFechas($event)"></app-filtro-fechas-entregas>
+                    <!--<app-filtro-entregas (etapa)="recibirEtapa($event)" #etapas></app-filtro-entregas>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between mb-2">
+        <div class="col-auto">
+        </div>
+        <div class="col-auto" style="font-size: 11px;">
+            <div class="row justify-content-end align-items-end">
+                <div class="col-auto">
+                    <span *ngIf="listaEntrega">{{(listaEntrega).length}} Entregas encontrados</span>
+                </div>
+                <div class="col-auto">
+                    <!--<pagination-controls (pageChange)="p = $event" class="my-pagination" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2 mt-4" *ngIf="listaEntrega && listaEntrega.length <= 0">
+        <div class="col-md-6 mx-auto text-center">
+            <span class="alert alert-success" role="alert"><strong>No tienes Entregas</strong></span>
+        </div>
+    </div>
+</div>
+
+<!--<app-item-entrega class="row  mb-2 align-items-end justify-content-between"
+    *ngFor="let entrega of listaEntrega | filtrocanal:filtro_tipoEntrega | filtroetapa:filtroEtapaEntrega | filtrofase:filtroFaseEntrega | filtrobuscar:filtro_texto | paginate: { itemsPerPage: 10, currentPage: p }"
+    [entrega]="entrega" [usuario]="user"></app-item-entrega>-->
+
+<app-entrega-item *ngFor="let entrega of listaEntrega" ></app-entrega-item>

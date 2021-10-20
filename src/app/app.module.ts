@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ReportesModule } from './modules/reportes/reportes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EntregasModule } from './modules/entregas/entregas.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EntregasModule } from './modules/entregas/entregas.module';
     ReportesModule,
     EntregasModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
