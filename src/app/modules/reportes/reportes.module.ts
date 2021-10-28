@@ -16,8 +16,7 @@ import { ContactabilidadTablasComponent } from './components/contactabilidad-tab
     CommonModule,
     ReportesRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    //BsDatepickerModule.forRoot(),
+    ReactiveFormsModule
   ]
 })
 export class ReportesModule { }

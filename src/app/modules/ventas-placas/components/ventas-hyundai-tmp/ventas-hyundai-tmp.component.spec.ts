@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntregaItemComponent } from './entrega-item.component';
+import { VentasHyundaiTmpComponent } from './ventas-hyundai-tmp.component';
 
-describe('EntregaItemComponent', () => {
-  let component: EntregaItemComponent;
-  let fixture: ComponentFixture<EntregaItemComponent>;
+describe('VentasHyundaiTmpComponent', () => {
+  let component: VentasHyundaiTmpComponent;
+  let fixture: ComponentFixture<VentasHyundaiTmpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EntregaItemComponent ]
+      declarations: [ VentasHyundaiTmpComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntregaItemComponent);
+    fixture = TestBed.createComponent(VentasHyundaiTmpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

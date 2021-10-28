@@ -1,0 +1,77 @@
+<div class="col-md-12">
+    <div class="card border-2 shadow-sm">
+        <div class="card-header bg-white">
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <small>
+                        <span class="badge mr-2 badge-success">Modelo x</span>
+                        <span class="badge mr-2 badge-warning">Version x</span>
+                    </small>
+                </div>
+                <div class="col-auto">
+                    <div class="btn-group" dropdown placement="bottom right">
+                        <button id="button-basic" dropdownToggle type="button" class="btn btn-sm btn-primary dropdown-toggle" aria-controls="dropdown-basic">
+                          <i class="fas fa-ellipsis-v"></i> <span class="caret"></span> 
+                        </button>
+                        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-basic">
+                            <!-- Validar permisos *ngIf -->
+                          <li role="menuitem"><a class="dropdown-item cursor btn-info" placement="left" (click)="abrirFinalizar(templateFinaliza)"><i class="fas fa-plus"></i><strong> Modificar placa</strong></a></li>  
+                        </ul>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<ng-template #templateFinaliza>
+    <div class="modal-body">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Modificar placa</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalref.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formFinaliza" (ngSubmit)="finalizarEntregav1()">
+                <div class="form-group p-0">
+                    <div class="form-check p-0">
+                        <div class="form-check p-0">
+                            <label class="form-check-label p-0 h5">
+                                Placa actual: <span class="text-secondary">{{plavaVieja}}</span>
+                            </label>
+                        </div>
+                        <div class="form-check p-0 mt-4">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <label class="form-check-label p-0 h5" for="nuevaPlaca">
+                                        Ingresar nueva placa:
+                                    </label>
+                                </div>
+                                <div class="col-md-4 p-0">
+                                    <div class="row justify-content-start">
+                                        <div class="col-md-12 p-0">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Ingresar la placa"
+                                            formControlName="nueva_placa" name="nuevaPlaca">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3  align-items-center justify-content-center">
+                    <div class="col-auto justify-content-center align-items-center">
+                        <div class="justify-content-center pt-1 pb-1">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>
+                                <i class="fas fa-spin fa-spinner" *ngIf="modificando"></i> Aceptar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
